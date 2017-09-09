@@ -7,6 +7,7 @@
 	// 		exit();
 	// 	}
 	// }
+	// echo '<script> window.location=" '.$_SERVER['PHP_SELF'].' "; </script>';
 ?>
 
 <!DOCTYPE html>
