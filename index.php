@@ -1,5 +1,12 @@
 <?php
-	//header("Location: login.php");
+	require("connect.php");
+	if(isset($_SESSION['login_user'])){
+		var_dump($_SESSION['login_user']);
+		exit();
+	}else{
+		header("Location: login.php");	
+	}
+	
 	
 	
 ?>
