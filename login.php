@@ -1,6 +1,12 @@
 <?php
 	require("connect.php");
-	include("module/user/check_admin.php")
+	include("module/user/check_admin.php");
+	// if(isset($_COOKIE)){
+	// 	foreach ($_COOKIE as $cookie_array => $value) {
+	// 		print_r($cookie_array);
+	// 		exit();
+	// 	}
+	// }
 ?>
 
 <!DOCTYPE html>
@@ -63,7 +69,7 @@
                     </div> <!-- /login-fields -->
 
                     <div class="login-actions">
-
+						<label><input type="checkbox" name="rememberLogin"> Remember</label> 
                         <input type="submit" name="adminlogin" class="button btn btn-success btn-large" value="Đăng nhập"/>
                         <div style = "font-size:11px; color:#cc0000; margin-top:10px"><?php echo $error; ?></div>
                     </div> <!-- .actions -->
