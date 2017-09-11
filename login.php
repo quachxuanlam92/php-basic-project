@@ -8,6 +8,9 @@
 	// 	}
 	// }
 	// echo '<script> window.location=" '.$_SERVER['PHP_SELF'].' "; </script>';
+	if(isset($_SESSION['login_user'])){
+		header("Location: index.php");	
+	}
 ?>
 
 <!DOCTYPE html>
@@ -70,7 +73,7 @@
                     </div> <!-- /login-fields -->
 
                     <div class="login-actions">
-
+						<input type="checkbox" name="rememberLogin"> Remember
                         <input type="submit" name="adminlogin" class="button btn btn-success btn-large" value="Đăng nhập"/>
                         <div style = "font-size:11px; color:#cc0000; margin-top:10px"><?php echo $error; ?></div>
                     </div> <!-- .actions -->

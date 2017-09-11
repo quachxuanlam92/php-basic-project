@@ -1,14 +1,15 @@
 <?php
 	require("connect.php");
 	if(isset($_SESSION['login_user'])){
-		var_dump($_SESSION['login_user']);
-		exit();
+		// if(isset($_COOKIE)){
+		// 	foreach ($_COOKIE as $cookie_array => $value) {
+		// 		print_r($cookie_array);
+		// 		exit();
+		// 	}
+		// }
 	}else{
 		header("Location: login.php");	
-	}
-	
-	
-	
+	}	
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -56,6 +57,7 @@
             				<li><a href="index.php?view=product&action=listproduct">Danh sách</a></li>
 						</ul>
 					</li>
+					<li><a href="logout.php">Log Out</a></li>
 				</ul>
 			</div><!-- /.navbar-collapse -->
 		</div>
