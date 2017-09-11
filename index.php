@@ -1,17 +1,14 @@
 <?php
 	require("connect.php");
 	if(isset($_SESSION['login_user'])){
-		// if(isset($_COOKIE)){
-		// 	foreach ($_COOKIE as $cookie_array => $value) {
-		// 		print_r($cookie_array);
-		// 		exit();
-		// 	}
-		// }
-		
-		
+		var_dump($_SESSION['login_user']);
+		exit();
 	}else{
 		header("Location: login.php");	
 	}
+	
+	
+	
 ?>
 <!DOCTYPE html>
 <html lang="en">

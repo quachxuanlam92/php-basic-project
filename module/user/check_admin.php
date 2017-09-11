@@ -5,20 +5,15 @@
 		$pass = mysqli_real_escape_string($conn,$_POST['admin-password']);
 		$sql = "SELECT * FROM tbl_users WHERE u_email = '$user' AND u_password = '$pass'";
 		$result = mysqli_query($conn,$sql);
-
 		if($num = mysqli_num_rows($result) > 0){
 			//$row = mysqli_fetch_assoc($result);
 			$_SESSION['login_user'] = $user;
-			if(isset($_POST['rememberLogin']) == true){
-				$cookie_user = "$user";
-				$cookie_pass = "$pass";
-				setcookie($cookie_user, $cookie_pass, time() + (86400 * 30));
-			}
 			header("Location: index.php");
 		}
 		else{
 				$error = "Your Login Name or Password is invalid";
 			}
-
-	}
+	}	
+	
+	
 ?>
