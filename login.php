@@ -1,6 +1,5 @@
 <?php
 	require("connect.php");
-<<<<<<< HEAD
 	include("module/user/check_admin.php");
 	// if(isset($_COOKIE)){
 	// 	foreach ($_COOKIE as $cookie_array => $value) {
@@ -9,9 +8,6 @@
 	// 	}
 	// }
 	// echo '<script> window.location=" '.$_SERVER['PHP_SELF'].' "; </script>';
-=======
-	include("module/user/check_admin.php")
->>>>>>> parent of fceb26a... edit
 ?>
 
 <!DOCTYPE html>
