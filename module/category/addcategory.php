@@ -1,13 +1,43 @@
 <?php
 
-	// if(isset($_POST['save'])){
-		
+	if(isset($_POST['add']) && isset($_POST['cat_name'])){
+    $cat_name = $_POST['cat_name'];
+    $cat_status = isset($_POST['status']);
+    if($cat_status == true){
+      $cat_status = 1;
+    }else{
+      $cat_status = 0;
+    }
+    $logo = isset($_FILES['logo']);
+    $errors= array();
+    $file_name = $_FILES['logo']['name'];
+    $file_size = $_FILES['logo']['size'];
+    $file_tmp = $_FILES['logo']['tmp_name'];
+    $file_type = $_FILES['logo']['type'];
+    $file_ext=strtolower(end(explode('.',$_FILES['logo']['name'])));
+    
+    $expensions= array("jpeg","jpg","png");
+    
+    if(in_array($file_ext,$expensions)=== false){
+       $errors[]="extension not allowed, please choose a JPEG or PNG file.";
+    }
+    
+    if($file_size > 2097152) {
+       $errors[]='File size must be excately 2 MB';
+    }
+    
+    if(empty($errors)==true) {
+       move_uploaded_file($file_tmp,"upload/category/".$file_name);
+       echo "Success";
+    }else{
+       print_r($errors);
+    }
 
-	// 	$sql = "INSERT INTO `tbl_category` (`cat_id`, `cat_name`, `logo`, `status`) 
-	// 			VALUES (NULL, '$cat_name', '$logo', '{$status}');";
-				
-
-	// 	}
+    $sql_add = "INSERT INTO `tbl_category` (`cat_id`, `cat_name`, `logo`, `status`) 
+        VALUES (NULL, '$cat_name', '$file_name', '$status');";
+    $addQuery = mysqli_query($conn,$sql_add);
+    header("Location: index.php?view=category&action=listcategory");
+	}
 
 	
 	
@@ -34,5 +64,5 @@
     </label>
   </div>
 
-  <button type="submit" class="btn btn-default" name="save">Thêm mới</button>
+  <button type="submit" class="btn btn-default" name="add">Thêm mới</button>
 </form>
